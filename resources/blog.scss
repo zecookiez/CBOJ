@@ -7,8 +7,11 @@
     margin-right: 0;
 
     .post {
-        border-bottom: 2px solid $border_gray;
-        padding-top: 0.5em;
+        border: 1px solid $border_gray;
+        padding: 1.8em;
+        margin-bottom: 1.5em;
+        border-radius: $widget_border_radius;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 
         .title {
             font-weight: 600;
@@ -24,7 +27,7 @@
         }
 
         &:last-child {
-            border-bottom: none;
+            //border-bottom: none;
         }
     }
 }
@@ -73,7 +76,7 @@
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 821px) {
     .blog-content, .blog-sidebar {
         display: block !important;
     }

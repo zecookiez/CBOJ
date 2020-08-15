@@ -424,8 +424,8 @@ ul.select2-selection__rendered {
     background: $widget_black;
     border-radius: $widget_border_radius $widget_border_radius 0 0;
     color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
     padding-left: 7px;
     font-size: 1.3em;
 }
@@ -438,6 +438,22 @@ ul.select2-selection__rendered {
 
 .sidebox-content {
     border: 1px solid $border_gray;
+    border-top: none;
+    margin: 0 -5px;
+    padding: 1px 0.5em 3px;
+
+    &.sidebox-table {
+        border: none;
+        padding: 0;
+
+        .table {
+            margin: 0 !important;
+        }
+    }
+}
+
+.sidebox-content-blog {
+    border: 1px solid transparent;
     border-top: none;
     margin: 0 -5px;
     padding: 1px 0.5em 3px;

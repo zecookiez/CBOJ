@@ -112,7 +112,8 @@ body {
     font-size: $base_font_size;
     line-height: 1.231;
     background: $background_light_gray;
-    font-family: "Segoe UI", "Lucida Grande", Arial, sans-serif;
+    //font-family: "Segoe UI", "Lucida Grande", Arial, sans-serif;
+    font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
     color: #000;
     height: 100%;
 }
@@ -258,7 +259,7 @@ nav {
         li {
             display: inline-block;
             color: #FFF;
-            text-transform: uppercase;
+            //text-transform: uppercase;
             position: relative;
 
             &.home-nav-element a {
@@ -276,23 +277,23 @@ nav {
                 display: inline-block;
                 text-decoration: none;
                 vertical-align: middle;
-                color: #FFF;
-                padding: 13px 7px;
+                color: #B3B3B3;
+                padding: 18px 15px;
                 height: 18px;
 
                 &:link {
-                    color: #FFF;
+                    //color: #FFF;
                 }
 
                 &:hover {
-                    color: #FFF;
-                    background: rgba(255, 255, 255, 0.25);
+                    color: #E6E6E6;
+                    //background: rgba(255, 255, 255, 0.25);
                     margin: 0;
                 }
 
                 &.active {
                     color: #FFF;
-                    background: $highlight_blue;
+                    //background: $highlight_blue;
                 }
 
                 .nav-expand {
@@ -361,7 +362,7 @@ nav {
         display: inline-block;
         height: 32px;
         margin-right: 1px;
-        border-right: 3px solid rgba(255, 255, 255, 0.15);
+        border-right: 3px solid transparent;
     }
 }
 
@@ -370,7 +371,7 @@ hr {
 }
 
 #content {
-    margin: 52px auto auto;
+    margin: 64px auto auto;
 
     // Header
     width: 90%;
@@ -415,7 +416,8 @@ noscript #noscript {
 }
 
 #announcement {
-    font-family: Arial, sans-serif;
+    //font-family: Arial, sans-serif;
+    font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
     font-size: 111%;
     color: white;
     font-weight: bold;
@@ -515,8 +517,23 @@ noscript #noscript {
 
             a {
                 display: block;
-                padding: 0;
+                padding: 5px 3px;
                 height: 100%;
+                color: #B3B3B3;
+            }
+
+            a:hover {
+                color: #E6E6E6;
+                //background: rgba(255, 255, 255, 0.25);
+            }
+
+            button {
+                color: #B3B3B3;
+            }
+
+            button:hover {
+                color: #E6E6E6;
+                //background: rgba(255, 255, 255, 0.25);
             }
         }
     }
@@ -565,7 +582,7 @@ math {
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
     #navigation {
         height: 36px;
     }
@@ -645,6 +662,11 @@ math {
                 margin-top: 0 !important;
             }
         }
+
+        ul li a {
+            padding: 0;
+        }
+
     }
 
     #content {
@@ -653,7 +675,7 @@ math {
     }
 }
 
-@media not all and (max-width: 760px) {
+@media not all and (max-width: 820px) {
     #nav-list {
         display: block !important;
 

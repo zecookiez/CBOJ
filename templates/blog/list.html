@@ -16,7 +16,8 @@
         }
 
         .post:first-child {
-            margin-top: 0.6em;
+            margin-top: 0em; 
+            // 0.6em
         }
 
         .comment-count {
@@ -89,8 +90,8 @@
     </div>
     <div id="blog-container">
         <div class="blog-content sidebox">
-            <h3>{{ _('News') }} <i class="fa fa-terminal"></i></h3>
-            <div class="sidebox-content">
+            <!-- <h3>{{ _('Club Announcements') }} <i class="fa fa-terminal"></i></h3> -->
+            <div class="sidebox-content-blog">
                 {% for post in posts %}
                     <section class="{% if post.sticky %}sticky {% endif %}post">
                         <h2 class="title">
@@ -186,7 +187,7 @@
             {% endif %}
 
             <div class="blog-sidebox sidebox">
-                <h3>{{ _('Comment stream') }} <i class="fa fa-comments"></i></h3>
+                <h3>{{ _('Comments') }} <i class="fa fa-comments"></i></h3>
                 <div class="sidebox-content">
                     <ul>
                         {% for comment in comments %}
@@ -198,11 +199,11 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    <span class="rssatom">
+                    <!--<span class="rssatom">
                         <a href="{{ url('comment_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
                         /
                         <a href="{{ url('comment_atom') }}">Atom</a>
-                    </span>
+                    </span>-->
                 </div>
             </div>
             <div class="blog-sidebox sidebox">
@@ -214,11 +215,11 @@
                             <li><a href="{{ url('problem_detail', problem.code) }}">{{ problem.name }}</a></li>
                         {% endfor %}
                     </ul>
-                    <span class="rssatom">
+                    <!--<span class="rssatom">
                         <a href="{{ url('problem_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
                         /
                         <a href="{{ url('problem_atom') }}">Atom</a>
-                    </span>
+                    </span>-->
                 </div>
             </div>
             {% if perms.judge.test_site and own_open_tickets %}
