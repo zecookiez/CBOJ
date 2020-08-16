@@ -333,10 +333,6 @@ nav {
                         border-left: 4px solid $highlight_blue;
                         white-space: nowrap;
                     }
-                    
-                    a:hover, button:hover {
-                        border-color: #0a5c51;
-                    }
                 }
             }
 
@@ -584,7 +580,7 @@ math {
     }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 760px) {
     #navigation {
         height: 36px;
     }
@@ -674,10 +670,11 @@ math {
     #content {
         width: auto;
         padding: 0 5px;
+        margin-top: 52px;
     }
 }
 
-@media not all and (max-width: 820px) {
+@media not all and (max-width: 800px) {
     #nav-list {
         display: block !important;
 
