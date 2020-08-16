@@ -184,7 +184,7 @@ header {
     }
 
     a {
-        color: #FFF;
+        //color: #FFF;
     }
 
     li {
@@ -332,6 +332,10 @@ nav {
                         display: block;
                         border-left: 4px solid $highlight_blue;
                         white-space: nowrap;
+                    }
+                    
+                    a:hover, button:hover {
+                        border-color: #0a5c51;
                     }
                 }
             }
@@ -522,7 +526,7 @@ noscript #noscript {
                 display: block;
                 padding: 5px 3px;
                 height: 100%;
-                color: white;
+                //color: white;
             }
 
             button {
