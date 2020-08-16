@@ -535,6 +535,18 @@ noscript #noscript {
             }
         }
     }
+    
+    .anon > a {
+        color: #B3B3B3;
+        
+        &:hover {
+            color: #E6E6E6;
+        }
+        
+        &:active {
+            color: #E6E6E6;
+        }
+    }
 }
 
 #page-container {
