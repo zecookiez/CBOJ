@@ -18,14 +18,17 @@
 }
 
 a {
-    color: #1958c1;
+    //color: #1958c1;
+    color: #10937f;
 
     &:hover {
-        color: #0645ad;
+        //color: #0645ad;
+        color: #0a5c51;
     }
 
     &:active {
-        color: #faa700;
+        //color: #faa700;
+        color: black;
     }
 }
 
