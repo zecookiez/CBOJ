@@ -17,7 +17,6 @@
 
         .post:first-child {
             margin-top: 0em; 
-            // 0.6em
         }
 
         .comment-count {
@@ -90,7 +89,6 @@
     </div>
     <div id="blog-container">
         <div class="blog-content sidebox">
-            <!-- <h3>{{ _('Club Announcements') }} <i class="fa fa-terminal"></i></h3> -->
             <div class="sidebox-content-blog">
                 {% for post in posts %}
                     <section class="{% if post.sticky %}sticky {% endif %}post">
@@ -199,11 +197,6 @@
                             </li>
                         {% endfor %}
                     </ul>
-                    <!--<span class="rssatom">
-                        <a href="{{ url('comment_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
-                        /
-                        <a href="{{ url('comment_atom') }}">Atom</a>
-                    </span>-->
                 </div>
             </div>
             <div class="blog-sidebox sidebox">
@@ -215,11 +208,6 @@
                             <li><a href="{{ url('problem_detail', problem.code) }}">{{ problem.name }}</a></li>
                         {% endfor %}
                     </ul>
-                    <!--<span class="rssatom">
-                        <a href="{{ url('problem_rss') }}"><span><i class="fa fa-rss"></i></span> RSS</a>
-                        /
-                        <a href="{{ url('problem_atom') }}">Atom</a>
-                    </span>-->
                 </div>
             </div>
             {% if perms.judge.test_site and own_open_tickets %}
