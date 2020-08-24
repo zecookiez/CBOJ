@@ -7,24 +7,23 @@
     margin-right: 0;
 
     .post {
-        border-bottom: 2px solid $border_gray;
-        padding-top: 0.5em;
+        border: 1px solid $border_gray;
+        padding: 1.8em;
+        margin-bottom: 1.5em;
+        border-radius: $widget_border_radius;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 
         .title {
             font-weight: 600;
             font-size: 1.7em;
 
             a {
-                color: #5b80b9 !important;
+                color: #10937f !important;
 
                 &:hover {
-                    color: #0645ad !important;
+                    color: #0a5c51 !important;
                 }
             }
-        }
-
-        &:last-child {
-            border-bottom: none;
         }
     }
 }
@@ -73,7 +72,7 @@
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 821px) {
     .blog-content, .blog-sidebar {
         display: block !important;
     }

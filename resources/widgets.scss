@@ -28,31 +28,30 @@
 
 // Bootstrap-y buttons
 .button, button, input[type=submit] {
-    color: white !important;
+    color: #10937F;
     text-decoration: none !important;
     cursor: pointer;
     vertical-align: middle;
     white-space: nowrap;
     font-weight: 400;
     line-height: 1.4;
-    background: rgb(51, 122, 183) none repeat scroll 0 (0% / auto) padding-box border-box;
-    background: -webkit-linear-gradient(top, #337ab7 0, #265a88 100%) repeat-x;
-    background: linear-gradient(to bottom, #337ab7 0, #265a88 100%) repeat-x;
     border-radius: $widget_border_radius;
     padding: 6px 12px;
     display: block;
-    border: 1px solid #245580;
+    border: 1px solid #10937F;
     text-align: center;
 
     // 4k hack
     font-size: $base_font_size;
 
     &:hover {
-        background: #265a88;
+        color: #0c6e61;
+        border-color: #0c6e61;
     }
 
     &.disabled {
-        background: linear-gradient(to bottom, darkgray 0, gray 100%) repeat-x !important;
+        background: white !important;
+        border-thickness: 1px;
         border-color: grey !important;
         cursor: not-allowed;
     }
@@ -63,12 +62,17 @@
 }
 
 button:hover, button:hover, input[type=submit]:hover {
-    background: #265a88;
+    color: #0c6e61;
+    border-color: #0c6e61;
 }
 
-.button:active, button:active, input[type=submit]:hover {
-    border-color: #245580;
-    background: #265a88;
+.button:active, button:active, input[type=submit]:active {
+    color: black;
+    border-color: black;
+}
+
+.log-out {
+    border-color: #10937F !important;
 }
 
 .inline-button {
@@ -98,7 +102,7 @@ input {
     }
     
     &[type=checkbox] {
-        vertical-align: middle;   
+        vertical-align: middle;
     }
 }
 
@@ -145,10 +149,10 @@ input {
     right: 0;
     display: block;
     font-size: 12px;
-    color: #767676;
+    color: #10937f;
     cursor: pointer;
     background-color: #FFF;
-    border: 1px solid #E1E1E8;
+    border: 1px solid #10937f;
     border-radius: 0 $widget_border_radius;
     position: absolute;
     padding: 5px 8px;
@@ -424,8 +428,8 @@ ul.select2-selection__rendered {
     background: $widget_black;
     border-radius: $widget_border_radius $widget_border_radius 0 0;
     color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
     padding-left: 7px;
     font-size: 1.3em;
 }
@@ -438,6 +442,22 @@ ul.select2-selection__rendered {
 
 .sidebox-content {
     border: 1px solid $border_gray;
+    border-top: none;
+    margin: 0 -5px;
+    padding: 1px 0.5em 3px;
+
+    &.sidebox-table {
+        border: none;
+        padding: 0;
+
+        .table {
+            margin: 0 !important;
+        }
+    }
+}
+
+.sidebox-content-blog {
+    border: 1px solid transparent;
     border-top: none;
     margin: 0 -5px;
     padding: 1px 0.5em 3px;
