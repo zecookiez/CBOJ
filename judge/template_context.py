@@ -107,7 +107,9 @@ def misc_config(request):
 def site_name(request):
     return {'SITE_NAME': settings.SITE_NAME,
             'SITE_LONG_NAME': settings.SITE_LONG_NAME,
-            'SITE_ADMIN_EMAIL': settings.SITE_ADMIN_EMAIL}
+            'SITE_ADMIN_EMAIL': settings.SITE_ADMIN_EMAIL,
+            'CBOJ_META_KEYWORDS': settings.CBOJ_META_KEYWORDS,
+            'CBOJ_META_DESCRIPTION': settings.CBOJ_META_DESCRIPTION}
 
 
 def math_setting(request):
