@@ -3,11 +3,11 @@
 <head>
     <title>{% block title %}{{ title }} - {{ SITE_LONG_NAME }}{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="keywords" content="{{ CBOJ_META_KEYWORDS }}">
+    {% if misc_config.meta_keywords %}
+        <meta name="keywords" content="{{ misc_config.meta_keywords }}">
+    {% endif %}
     {% if meta_description %}
         <meta name="description" content="{{ meta_description }}">
-    {% else %}
-        <meta name="description" content="{{ CBOJ_META_DESCRIPTION }}">
     {% endif %}
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicons-->
