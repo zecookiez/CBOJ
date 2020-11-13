@@ -396,7 +396,9 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
         context['show_types'] = 0 if self.in_contest else int(self.show_types)
         context['full_text'] = 0 if self.in_contest else int(self.full_text)
         context['category'] = self.category
-        context['categories'] = ProblemGroup.objects.all()
+        context['categories'] = (
+            ProblemGroup.objects.filter(problem__in=Problem.get_visible_problems(self.request.user)).distinct()
+        )
         if self.show_types:
             context['selected_types'] = self.selected_types
             context['problem_types'] = ProblemType.objects.all()
