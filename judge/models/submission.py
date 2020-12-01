@@ -72,6 +72,8 @@ class Submission(models.Model):
     result = models.CharField(verbose_name=_('result'), max_length=3, choices=SUBMISSION_RESULT,
                               default=None, null=True, blank=True, db_index=True)
     error = models.TextField(verbose_name=_('compile errors'), null=True, blank=True)
+    # changed line below
+    feedback = models.TextField(verbose_name=_('code feedback'), null=True, blank=True)
     current_testcase = models.IntegerField(default=0)
     batch = models.BooleanField(verbose_name=_('batched cases'), default=False)
     case_points = models.FloatField(verbose_name=_('test case points'), default=0)

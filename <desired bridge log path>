@@ -1,0 +1,290 @@
+INFO 2020-11-15 02:59:38,374 daemon Exiting due to SIGINT
+INFO 2020-11-15 03:52:08,875 daemon Exiting due to SIGINT
+INFO 2020-11-15 05:01:11,683 daemon Exiting due to SIGINT
+INFO 2020-11-15 05:05:16,644 daemon Exiting due to SIGINT
+INFO 2020-11-15 05:08:36,366 daemon Exiting due to SIGINT
+INFO 2020-11-15 05:20:50,184 daemon Exiting due to SIGINT
+INFO 2020-11-29 15:40:55,826 daemon Exiting due to SIGINT
+INFO 2020-11-29 16:33:31,587 daemon Exiting due to SIGINT
+INFO 2020-11-30 21:59:43,793 daemon Exiting due to SIGINT
+INFO 2020-11-30 22:12:26,733 daemon Exiting due to SIGINT
+INFO 2020-11-30 22:45:42,800 daemon Exiting due to SIGINT
+INFO 2020-11-30 23:54:46,567 judge_handler Judge connected from: ('127.0.0.1', 41918)
+INFO 2020-11-30 23:54:46,628 judge_handler Judge authenticated: ('127.0.0.1', 41918) (C++14)
+INFO 2020-11-30 23:55:00,993 judge_list Free judges: 1
+INFO 2020-11-30 23:55:00,994 judge_list Dispatched submission 16 to: C++14
+INFO 2020-11-30 23:55:01,012 judge_handler Submission acknowledged: 16
+INFO 2020-11-30 23:55:05,281 judge_handler C++14: Submission failed to compile: 16
+INFO 2020-11-30 23:55:05,281 judge_list Judge available after grading 16: C++14
+INFO 2020-11-30 23:55:59,897 judge_list Free judges: 1
+INFO 2020-11-30 23:55:59,898 judge_list Dispatched submission 17 to: C++14
+INFO 2020-11-30 23:55:59,908 judge_handler Submission acknowledged: 17
+INFO 2020-11-30 23:56:05,186 judge_handler C++14: Submission generated compiler messages: 17
+INFO 2020-11-30 23:56:05,192 judge_handler C++14: Grading has begun on: 17
+INFO 2020-11-30 23:56:05,485 judge_handler C++14: 2 test case(s) completed on: 17
+INFO 2020-11-30 23:56:05,555 judge_handler C++14: 1 test case(s) completed on: 17
+INFO 2020-11-30 23:56:05,571 judge_handler C++14: Grading has ended on: 17
+INFO 2020-11-30 23:56:05,572 judge_list Judge available after grading 17: C++14
+INFO 2020-12-01 00:14:11,999 judge_handler Judge disconnected from: ('127.0.0.1', 41918) with name C++14
+INFO 2020-12-01 00:15:13,974 daemon Exiting due to SIGINT
+INFO 2020-12-01 00:17:20,076 judge_handler Judge connected from: ('127.0.0.1', 43012)
+INFO 2020-12-01 00:17:20,088 judge_handler Judge authenticated: ('127.0.0.1', 43012) (C++14)
+INFO 2020-12-01 00:17:29,169 judge_list Free judges: 1
+INFO 2020-12-01 00:17:29,170 judge_list Dispatched submission 18 to: C++14
+INFO 2020-12-01 00:17:29,187 judge_handler Submission acknowledged: 18
+INFO 2020-12-01 00:17:29,365 judge_handler C++14: Submission generated compiler messages: 18
+INFO 2020-12-01 00:17:29,372 judge_handler C++14: Grading has begun on: 18
+INFO 2020-12-01 00:17:29,636 judge_handler C++14: 1 test case(s) completed on: 18
+INFO 2020-12-01 00:17:29,893 judge_handler C++14: 1 test case(s) completed on: 18
+INFO 2020-12-01 00:17:30,019 judge_handler C++14: 1 test case(s) completed on: 18
+INFO 2020-12-01 00:17:30,031 judge_handler C++14: Grading has ended on: 18
+INFO 2020-12-01 00:17:30,032 judge_list Judge available after grading 18: C++14
+INFO 2020-12-01 00:17:58,986 judge_list Free judges: 1
+INFO 2020-12-01 00:17:58,987 judge_list Dispatched submission 19 to: C++14
+INFO 2020-12-01 00:17:58,999 judge_handler Submission acknowledged: 19
+INFO 2020-12-01 00:17:59,076 judge_handler C++14: Submission failed to compile: 19
+INFO 2020-12-01 00:17:59,076 judge_list Judge available after grading 19: C++14
+INFO 2020-12-01 00:18:38,987 judge_list Free judges: 1
+INFO 2020-12-01 00:18:38,988 judge_list Dispatched submission 20 to: C++14
+INFO 2020-12-01 00:18:39,010 judge_handler Submission acknowledged: 20
+INFO 2020-12-01 00:18:42,216 judge_handler C++14: Submission failed to compile: 20
+INFO 2020-12-01 00:18:42,216 judge_list Judge available after grading 20: C++14
+INFO 2020-12-01 00:19:31,118 judge_list Free judges: 1
+INFO 2020-12-01 00:19:31,119 judge_list Dispatched submission 21 to: C++14
+INFO 2020-12-01 00:19:31,133 judge_handler Submission acknowledged: 21
+INFO 2020-12-01 00:19:35,150 judge_handler C++14: Submission generated compiler messages: 21
+INFO 2020-12-01 00:19:35,154 judge_handler C++14: Grading has begun on: 21
+INFO 2020-12-01 00:19:35,313 judge_handler C++14: 2 test case(s) completed on: 21
+INFO 2020-12-01 00:19:35,358 judge_handler C++14: 1 test case(s) completed on: 21
+INFO 2020-12-01 00:19:35,365 judge_handler C++14: Grading has ended on: 21
+INFO 2020-12-01 00:19:35,365 judge_list Judge available after grading 21: C++14
+INFO 2020-12-01 00:20:02,355 judge_list Free judges: 1
+INFO 2020-12-01 00:20:02,356 judge_list Dispatched submission 21 to: C++14
+INFO 2020-12-01 00:20:02,376 judge_handler Submission acknowledged: 21
+INFO 2020-12-01 00:20:06,215 judge_handler C++14: Submission generated compiler messages: 21
+INFO 2020-12-01 00:20:06,255 judge_handler C++14: Grading has begun on: 21
+INFO 2020-12-01 00:20:06,418 judge_handler C++14: 2 test case(s) completed on: 21
+INFO 2020-12-01 00:20:06,526 judge_handler C++14: 1 test case(s) completed on: 21
+INFO 2020-12-01 00:20:06,553 judge_handler C++14: Grading has ended on: 21
+INFO 2020-12-01 00:20:06,554 judge_list Judge available after grading 21: C++14
+INFO 2020-12-01 00:20:10,279 judge_list Free judges: 1
+INFO 2020-12-01 00:20:10,279 judge_list Dispatched submission 22 to: C++14
+INFO 2020-12-01 00:20:10,294 judge_handler Submission acknowledged: 22
+INFO 2020-12-01 00:20:13,628 judge_handler C++14: Submission failed to compile: 22
+INFO 2020-12-01 00:20:13,629 judge_list Judge available after grading 22: C++14
+INFO 2020-12-01 00:23:22,899 judge_list Free judges: 1
+INFO 2020-12-01 00:23:22,900 judge_list Dispatched submission 23 to: C++14
+INFO 2020-12-01 00:23:22,921 judge_handler Submission acknowledged: 23
+INFO 2020-12-01 00:23:27,660 judge_handler C++14: Submission generated compiler messages: 23
+INFO 2020-12-01 00:23:27,669 judge_handler C++14: Grading has begun on: 23
+INFO 2020-12-01 00:23:27,837 judge_handler C++14: 2 test case(s) completed on: 23
+INFO 2020-12-01 00:23:27,847 judge_handler C++14: 1 test case(s) completed on: 23
+INFO 2020-12-01 00:23:27,861 judge_handler C++14: Grading has ended on: 23
+INFO 2020-12-01 00:23:27,861 judge_list Judge available after grading 23: C++14
+INFO 2020-12-01 00:29:36,159 judge_list Free judges: 1
+INFO 2020-12-01 00:29:36,160 judge_list Dispatched submission 24 to: C++14
+INFO 2020-12-01 00:29:36,171 judge_handler Submission acknowledged: 24
+INFO 2020-12-01 00:29:39,672 judge_handler C++14: Submission generated compiler messages: 24
+INFO 2020-12-01 00:29:39,686 judge_handler C++14: Grading has begun on: 24
+INFO 2020-12-01 00:29:39,878 judge_handler C++14: 2 test case(s) completed on: 24
+INFO 2020-12-01 00:29:39,995 judge_handler C++14: 1 test case(s) completed on: 24
+INFO 2020-12-01 00:29:40,007 judge_handler C++14: Grading has ended on: 24
+INFO 2020-12-01 00:29:40,008 judge_list Judge available after grading 24: C++14
+INFO 2020-12-01 00:29:49,505 judge_list Free judges: 1
+INFO 2020-12-01 00:29:49,507 judge_list Dispatched submission 25 to: C++14
+INFO 2020-12-01 00:29:49,533 judge_handler Submission acknowledged: 25
+INFO 2020-12-01 00:29:53,635 judge_handler C++14: Submission generated compiler messages: 25
+INFO 2020-12-01 00:29:53,639 judge_handler C++14: Grading has begun on: 25
+INFO 2020-12-01 00:29:53,810 judge_handler C++14: 3 test case(s) completed on: 25
+INFO 2020-12-01 00:29:53,821 judge_handler C++14: Grading has ended on: 25
+INFO 2020-12-01 00:29:53,822 judge_list Judge available after grading 25: C++14
+INFO 2020-12-01 00:30:03,376 judge_list Free judges: 1
+INFO 2020-12-01 00:30:03,377 judge_list Dispatched submission 26 to: C++14
+INFO 2020-12-01 00:30:03,397 judge_handler Submission acknowledged: 26
+INFO 2020-12-01 00:30:06,271 judge_handler C++14: Submission generated compiler messages: 26
+INFO 2020-12-01 00:30:06,275 judge_handler C++14: Grading has begun on: 26
+INFO 2020-12-01 00:30:06,425 judge_handler C++14: 3 test case(s) completed on: 26
+INFO 2020-12-01 00:30:06,436 judge_handler C++14: Grading has ended on: 26
+INFO 2020-12-01 00:30:06,437 judge_list Judge available after grading 26: C++14
+INFO 2020-12-01 00:30:27,918 judge_list Free judges: 1
+INFO 2020-12-01 00:30:27,919 judge_list Dispatched submission 27 to: C++14
+INFO 2020-12-01 00:30:27,934 judge_handler Submission acknowledged: 27
+INFO 2020-12-01 00:30:31,955 judge_handler C++14: Submission generated compiler messages: 27
+INFO 2020-12-01 00:30:31,960 judge_handler C++14: Grading has begun on: 27
+INFO 2020-12-01 00:30:32,073 judge_handler C++14: 1 test case(s) completed on: 27
+INFO 2020-12-01 00:30:32,162 judge_handler C++14: 2 test case(s) completed on: 27
+INFO 2020-12-01 00:30:32,169 judge_handler C++14: Grading has ended on: 27
+INFO 2020-12-01 00:30:32,169 judge_list Judge available after grading 27: C++14
+INFO 2020-12-01 00:31:59,654 judge_list Free judges: 1
+INFO 2020-12-01 00:31:59,656 judge_list Dispatched submission 28 to: C++14
+INFO 2020-12-01 00:31:59,670 judge_handler Submission acknowledged: 28
+INFO 2020-12-01 00:32:04,814 judge_handler C++14: Submission generated compiler messages: 28
+INFO 2020-12-01 00:32:04,822 judge_handler C++14: Grading has begun on: 28
+INFO 2020-12-01 00:32:04,926 judge_handler C++14: 2 test case(s) completed on: 28
+INFO 2020-12-01 00:32:04,999 judge_handler C++14: 1 test case(s) completed on: 28
+INFO 2020-12-01 00:32:05,009 judge_handler C++14: Grading has ended on: 28
+INFO 2020-12-01 00:32:05,009 judge_list Judge available after grading 28: C++14
+INFO 2020-12-01 00:32:20,571 judge_list Free judges: 1
+INFO 2020-12-01 00:32:20,572 judge_list Dispatched submission 29 to: C++14
+INFO 2020-12-01 00:32:20,587 judge_handler Submission acknowledged: 29
+INFO 2020-12-01 00:32:24,819 judge_handler C++14: Submission generated compiler messages: 29
+INFO 2020-12-01 00:32:24,824 judge_handler C++14: Grading has begun on: 29
+INFO 2020-12-01 00:32:24,984 judge_handler C++14: 3 test case(s) completed on: 29
+INFO 2020-12-01 00:32:24,993 judge_handler C++14: Grading has ended on: 29
+INFO 2020-12-01 00:32:24,994 judge_list Judge available after grading 29: C++14
+INFO 2020-12-01 00:32:54,696 judge_list Free judges: 1
+INFO 2020-12-01 00:32:54,697 judge_list Dispatched submission 30 to: C++14
+INFO 2020-12-01 00:32:54,711 judge_handler Submission acknowledged: 30
+INFO 2020-12-01 00:32:57,875 judge_handler C++14: Submission generated compiler messages: 30
+INFO 2020-12-01 00:32:57,882 judge_handler C++14: Grading has begun on: 30
+INFO 2020-12-01 00:33:00,170 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:33:03,181 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:33:05,043 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:33:05,064 judge_handler C++14: Grading has ended on: 30
+INFO 2020-12-01 00:33:05,065 judge_list Judge available after grading 30: C++14
+INFO 2020-12-01 00:35:36,194 judge_list Free judges: 1
+INFO 2020-12-01 00:35:36,195 judge_list Dispatched submission 31 to: C++14
+INFO 2020-12-01 00:35:36,215 judge_handler Submission acknowledged: 31
+INFO 2020-12-01 00:35:40,372 judge_handler C++14: Submission generated compiler messages: 31
+INFO 2020-12-01 00:35:40,393 judge_handler C++14: Grading has begun on: 31
+INFO 2020-12-01 00:35:40,602 judge_handler C++14: 3 test case(s) completed on: 31
+INFO 2020-12-01 00:35:40,633 judge_handler C++14: Grading has ended on: 31
+INFO 2020-12-01 00:35:40,636 judge_list Judge available after grading 31: C++14
+INFO 2020-12-01 00:35:55,419 judge_list Free judges: 1
+INFO 2020-12-01 00:35:55,420 judge_list Dispatched submission 32 to: C++14
+INFO 2020-12-01 00:35:55,438 judge_handler Submission acknowledged: 32
+INFO 2020-12-01 00:35:59,099 judge_handler C++14: Submission failed to compile: 32
+INFO 2020-12-01 00:35:59,099 judge_list Judge available after grading 32: C++14
+INFO 2020-12-01 00:36:19,324 judge_list Free judges: 1
+INFO 2020-12-01 00:36:19,325 judge_list Dispatched submission 33 to: C++14
+INFO 2020-12-01 00:36:19,351 judge_handler Submission acknowledged: 33
+INFO 2020-12-01 00:36:23,703 judge_handler C++14: Submission generated compiler messages: 33
+INFO 2020-12-01 00:36:23,708 judge_handler C++14: Grading has begun on: 33
+INFO 2020-12-01 00:36:24,808 judge_handler C++14: 1 test case(s) completed on: 33
+INFO 2020-12-01 00:36:25,060 judge_handler C++14: 1 test case(s) completed on: 33
+INFO 2020-12-01 00:36:25,401 judge_handler C++14: 1 test case(s) completed on: 33
+INFO 2020-12-01 00:36:25,412 judge_handler C++14: Grading has ended on: 33
+INFO 2020-12-01 00:36:25,412 judge_list Judge available after grading 33: C++14
+INFO 2020-12-01 00:37:12,649 judge_list Free judges: 1
+INFO 2020-12-01 00:37:12,652 judge_list Dispatched submission 34 to: C++14
+INFO 2020-12-01 00:37:12,675 judge_handler Submission acknowledged: 34
+INFO 2020-12-01 00:37:18,024 judge_handler C++14: Submission failed to compile: 34
+INFO 2020-12-01 00:37:18,024 judge_list Judge available after grading 34: C++14
+INFO 2020-12-01 00:39:08,092 judge_list Free judges: 1
+INFO 2020-12-01 00:39:08,092 judge_list Dispatched submission 30 to: C++14
+INFO 2020-12-01 00:39:08,120 judge_handler Submission acknowledged: 30
+INFO 2020-12-01 00:39:11,616 judge_handler C++14: Submission generated compiler messages: 30
+INFO 2020-12-01 00:39:11,624 judge_handler C++14: Grading has begun on: 30
+INFO 2020-12-01 00:39:14,961 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:16,969 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:18,817 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:18,831 judge_handler C++14: Grading has ended on: 30
+INFO 2020-12-01 00:39:18,831 judge_list Judge available after grading 30: C++14
+INFO 2020-12-01 00:39:22,511 judge_list Free judges: 1
+INFO 2020-12-01 00:39:22,512 judge_list Dispatched submission 30 to: C++14
+INFO 2020-12-01 00:39:22,525 judge_handler Submission acknowledged: 30
+INFO 2020-12-01 00:39:26,451 judge_handler C++14: Submission generated compiler messages: 30
+INFO 2020-12-01 00:39:26,458 judge_handler C++14: Grading has begun on: 30
+INFO 2020-12-01 00:39:28,510 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:31,785 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:33,649 judge_handler C++14: 1 test case(s) completed on: 30
+INFO 2020-12-01 00:39:33,666 judge_handler C++14: Grading has ended on: 30
+INFO 2020-12-01 00:39:33,669 judge_list Judge available after grading 30: C++14
+INFO 2020-12-01 00:39:58,635 judge_list Free judges: 1
+INFO 2020-12-01 00:39:58,636 judge_list Dispatched submission 17 to: C++14
+INFO 2020-12-01 00:39:58,654 judge_handler Submission acknowledged: 17
+INFO 2020-12-01 00:40:01,698 judge_handler C++14: Submission generated compiler messages: 17
+INFO 2020-12-01 00:40:01,702 judge_handler C++14: Grading has begun on: 17
+INFO 2020-12-01 00:40:01,889 judge_handler C++14: 2 test case(s) completed on: 17
+INFO 2020-12-01 00:40:01,947 judge_handler C++14: 1 test case(s) completed on: 17
+INFO 2020-12-01 00:40:01,958 judge_handler C++14: Grading has ended on: 17
+INFO 2020-12-01 00:40:01,959 judge_list Judge available after grading 17: C++14
+INFO 2020-12-01 00:46:10,246 judge_list Free judges: 1
+INFO 2020-12-01 00:46:10,248 judge_list Dispatched submission 35 to: C++14
+INFO 2020-12-01 00:46:10,259 judge_handler Submission acknowledged: 35
+INFO 2020-12-01 00:46:14,798 judge_handler C++14: Submission generated compiler messages: 35
+INFO 2020-12-01 00:46:14,805 judge_handler C++14: Grading has begun on: 35
+INFO 2020-12-01 00:46:14,913 judge_handler C++14: 1 test case(s) completed on: 35
+INFO 2020-12-01 00:46:14,996 judge_handler C++14: 2 test case(s) completed on: 35
+INFO 2020-12-01 00:46:15,009 judge_handler C++14: Grading has ended on: 35
+INFO 2020-12-01 00:46:15,010 judge_list Judge available after grading 35: C++14
+INFO 2020-12-01 00:46:28,011 judge_list Free judges: 1
+INFO 2020-12-01 00:46:28,012 judge_list Dispatched submission 36 to: C++14
+INFO 2020-12-01 00:46:28,034 judge_handler Submission acknowledged: 36
+INFO 2020-12-01 00:46:31,405 judge_handler C++14: Submission generated compiler messages: 36
+INFO 2020-12-01 00:46:31,421 judge_handler C++14: Grading has begun on: 36
+INFO 2020-12-01 00:46:31,515 judge_handler C++14: 1 test case(s) completed on: 36
+INFO 2020-12-01 00:46:31,767 judge_handler C++14: 1 test case(s) completed on: 36
+INFO 2020-12-01 00:46:32,054 judge_handler C++14: 1 test case(s) completed on: 36
+INFO 2020-12-01 00:46:32,062 judge_handler C++14: Grading has ended on: 36
+INFO 2020-12-01 00:46:32,062 judge_list Judge available after grading 36: C++14
+INFO 2020-12-01 01:02:01,497 judge_handler Judge disconnected from: ('127.0.0.1', 43012) with name C++14
+INFO 2020-12-01 01:03:37,558 daemon Exiting due to SIGINT
+INFO 2020-12-01 01:08:23,284 judge_handler Judge connected from: ('127.0.0.1', 43564)
+INFO 2020-12-01 01:08:23,305 judge_handler Judge authenticated: ('127.0.0.1', 43564) (C++14)
+INFO 2020-12-01 01:09:05,743 judge_list Free judges: 1
+INFO 2020-12-01 01:09:05,743 judge_list Dispatched submission 37 to: C++14
+INFO 2020-12-01 01:09:05,763 judge_handler Submission acknowledged: 37
+INFO 2020-12-01 01:09:09,319 judge_handler C++14: Submission generated compiler messages: 37
+INFO 2020-12-01 01:09:09,324 judge_handler C++14: Grading has begun on: 37
+INFO 2020-12-01 01:09:09,459 judge_handler C++14: 2 test case(s) completed on: 37
+INFO 2020-12-01 01:09:09,552 judge_handler C++14: 1 test case(s) completed on: 37
+INFO 2020-12-01 01:09:09,563 judge_handler C++14: Grading has ended on: 37
+INFO 2020-12-01 01:09:09,563 judge_list Judge available after grading 37: C++14
+INFO 2020-12-01 01:13:51,073 judge_handler Judge disconnected from: ('127.0.0.1', 43564) with name C++14
+INFO 2020-12-01 01:14:46,866 daemon Exiting due to SIGINT
+INFO 2020-12-01 01:17:28,927 judge_handler Judge connected from: ('127.0.0.1', 43712)
+INFO 2020-12-01 01:17:28,934 judge_handler Judge authenticated: ('127.0.0.1', 43712) (C++14)
+INFO 2020-12-01 01:18:15,861 judge_list Free judges: 1
+INFO 2020-12-01 01:18:15,875 judge_list Dispatched submission 38 to: C++14
+INFO 2020-12-01 01:18:16,004 judge_handler Submission acknowledged: 38
+INFO 2020-12-01 01:18:19,919 judge_handler C++14: Submission generated compiler messages: 38
+INFO 2020-12-01 01:18:19,936 judge_handler C++14: Grading has begun on: 38
+INFO 2020-12-01 01:18:20,180 judge_handler C++14: 2 test case(s) completed on: 38
+INFO 2020-12-01 01:18:20,229 judge_handler C++14: 1 test case(s) completed on: 38
+INFO 2020-12-01 01:18:20,243 judge_handler C++14: Grading has ended on: 38
+INFO 2020-12-01 01:18:20,243 judge_list Judge available after grading 38: C++14
+INFO 2020-12-01 01:18:27,710 judge_list Free judges: 1
+INFO 2020-12-01 01:18:27,711 judge_list Dispatched submission 39 to: C++14
+INFO 2020-12-01 01:18:27,726 judge_handler Submission acknowledged: 39
+INFO 2020-12-01 01:18:31,687 judge_handler C++14: Submission generated compiler messages: 39
+INFO 2020-12-01 01:18:31,691 judge_handler C++14: Grading has begun on: 39
+INFO 2020-12-01 01:18:31,897 judge_handler C++14: 3 test case(s) completed on: 39
+INFO 2020-12-01 01:18:31,905 judge_handler C++14: Grading has ended on: 39
+INFO 2020-12-01 01:18:31,905 judge_list Judge available after grading 39: C++14
+INFO 2020-12-01 01:18:39,179 judge_list Free judges: 1
+INFO 2020-12-01 01:18:39,180 judge_list Dispatched submission 40 to: C++14
+INFO 2020-12-01 01:18:39,206 judge_handler Submission acknowledged: 40
+INFO 2020-12-01 01:18:43,109 judge_handler C++14: Submission failed to compile: 40
+INFO 2020-12-01 01:18:43,109 judge_list Judge available after grading 40: C++14
+INFO 2020-12-01 01:18:55,525 judge_list Free judges: 1
+INFO 2020-12-01 01:18:55,526 judge_list Dispatched submission 41 to: C++14
+INFO 2020-12-01 01:18:55,546 judge_handler Submission acknowledged: 41
+INFO 2020-12-01 01:18:59,020 judge_handler C++14: Submission generated compiler messages: 41
+INFO 2020-12-01 01:18:59,025 judge_handler C++14: Grading has begun on: 41
+INFO 2020-12-01 01:18:59,564 judge_handler C++14: 1 test case(s) completed on: 41
+INFO 2020-12-01 01:19:00,067 judge_handler C++14: 1 test case(s) completed on: 41
+INFO 2020-12-01 01:19:00,353 judge_handler C++14: 1 test case(s) completed on: 41
+INFO 2020-12-01 01:19:00,377 judge_handler C++14: Grading has ended on: 41
+INFO 2020-12-01 01:19:00,377 judge_list Judge available after grading 41: C++14
+INFO 2020-12-01 01:19:14,337 judge_list Free judges: 1
+INFO 2020-12-01 01:19:14,337 judge_list Dispatched submission 42 to: C++14
+INFO 2020-12-01 01:19:14,358 judge_handler Submission acknowledged: 42
+INFO 2020-12-01 01:19:17,009 judge_handler C++14: Submission generated compiler messages: 42
+INFO 2020-12-01 01:19:17,015 judge_handler C++14: Grading has begun on: 42
+INFO 2020-12-01 01:19:18,400 judge_handler C++14: 1 test case(s) completed on: 42
+INFO 2020-12-01 01:19:19,410 judge_handler C++14: 1 test case(s) completed on: 42
+INFO 2020-12-01 01:19:20,457 judge_handler C++14: 1 test case(s) completed on: 42
+INFO 2020-12-01 01:19:20,474 judge_handler C++14: Grading has ended on: 42
+INFO 2020-12-01 01:19:20,475 judge_list Judge available after grading 42: C++14
+INFO 2020-12-01 01:20:09,412 judge_list Free judges: 1
+INFO 2020-12-01 01:20:09,412 judge_list Dispatched submission 43 to: C++14
+INFO 2020-12-01 01:20:09,427 judge_handler Submission acknowledged: 43
+INFO 2020-12-01 01:20:13,450 judge_handler C++14: Submission generated compiler messages: 43
+INFO 2020-12-01 01:20:13,455 judge_handler C++14: Grading has begun on: 43
+INFO 2020-12-01 01:20:15,630 judge_handler C++14: 1 test case(s) completed on: 43
+INFO 2020-12-01 01:20:17,637 judge_handler C++14: 1 test case(s) completed on: 43
+INFO 2020-12-01 01:20:19,655 judge_handler C++14: 1 test case(s) completed on: 43
+INFO 2020-12-01 01:20:19,672 judge_handler C++14: Grading has ended on: 43
+INFO 2020-12-01 01:20:19,672 judge_list Judge available after grading 43: C++14
+INFO 2020-12-01 01:24:20,013 judge_handler Judge disconnected from: ('127.0.0.1', 43712) with name C++14

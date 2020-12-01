@@ -1,0 +1,28 @@
+# This is the same ID you specified in the judge admin panel
+id: "C++14"
+# The key this judge will use to authenticate with the site server, generated from the admin panel
+key: "XKK.MrMjMqtG{&-#L*D[W?0~4c?ltWzjczBll;+TJ5Frvo6D}I)lfSW(UD^4U#_,Cl%}H+CX<|*if,72e)n;&2@v[b?Zwo:,uPEL"
+# Where to look for problems on the local filesystem.
+# This directory /not/ scanned recursively, and any directory containing an init.yml file is assumed to
+# be a problem directory.
+problem_storage_root:
+  - /home/sync/problems
+# All configuration for language executors
+# If you're unsure of what values a language needs, your best bet is to consult the source of the executor:
+# <https://github.com/DMOJ/judge/tree/master/dmoj/executors>
+runtime:
+  as_x64: /usr/bin/x86_64-linux-gnu-as
+  as_x86: /usr/bin/as
+  awk: /usr/bin/mawk
+  cat: /usr/bin/cat
+  g++: /usr/bin/g++
+  g++11: /usr/bin/g++
+  g++14: /usr/bin/g++
+  g++17: /usr/bin/g++
+  gcc: /usr/bin/gcc
+  gcc11: /usr/bin/gcc
+  ld_x64: /usr/bin/x86_64-linux-gnu-ld
+  ld_x86: /usr/bin/ld
+  perl: /usr/bin/perl
+  python3: /usr/bin/python3
+  sed: /usr/bin/sed

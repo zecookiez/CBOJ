@@ -527,6 +527,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(choices=[('QU', 'Queued'), ('P', 'Processing'), ('G', 'Grading'), ('D', 'Completed'), ('IE', 'Internal Error'), ('CE', 'Compile Error'), ('AB', 'Aborted')], db_index=True, default='QU', max_length=2, verbose_name='status')),
                 ('result', models.CharField(blank=True, choices=[('AC', 'Accepted'), ('WA', 'Wrong Answer'), ('TLE', 'Time Limit Exceeded'), ('MLE', 'Memory Limit Exceeded'), ('OLE', 'Output Limit Exceeded'), ('IR', 'Invalid Return'), ('RTE', 'Runtime Error'), ('CE', 'Compile Error'), ('IE', 'Internal Error'), ('SC', 'Short circuit'), ('AB', 'Aborted')], db_index=True, default=None, max_length=3, null=True, verbose_name='result')),
                 ('error', models.TextField(blank=True, null=True, verbose_name='compile errors')),
+                ('feedback', models.TextField(blank=True, null=True, verbose_name='code feedback')),
                 ('current_testcase', models.IntegerField(default=0)),
                 ('batch', models.BooleanField(default=False, verbose_name='batched cases')),
                 ('case_points', models.FloatField(default=0, verbose_name='test case points')),
