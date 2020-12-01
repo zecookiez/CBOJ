@@ -14,7 +14,7 @@
         <h3>{{ _('Compilation Error') }}</h3>
         <pre>{{ submission.error|ansi2html }}</pre>
     {% else %}
-		{% if submission.feedback %}
+        {% if submission.feedback %}
             <h3>{{ _('Code Feedback') }}</h3>
             <pre>{{ submission.feedback|ansi2html }}</pre>
             <hr class="half-hr"><br>
