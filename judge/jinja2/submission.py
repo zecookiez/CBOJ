@@ -15,6 +15,7 @@ def submission_layout(submission, profile_id, user, completed_problem_ids, edita
     elif profile_id == submission.user_id:
         can_view = True
     elif submission.problem_id in completed_problem_ids:
-        can_view = submission.problem.is_public or submission.problem_id in tester_problem_ids
+        can_view = (submission.problem.is_public and submission.problem.has_public_submissions) or \
+                    submission.problem_id in tester_problem_ids
 
     return can_view, can_edit

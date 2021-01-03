@@ -137,8 +137,9 @@ class Submission(models.Model):
         elif self.user_id == profile.id:
             return True
         elif (self.problem.is_public or self.problem.testers.filter(id=profile.id).exists()) and \
-                self.problem.submission_set.filter(user_id=profile.id, result='AC',
-                                                   points=self.problem.points).exists():
+                (self.problem.has_public_submissions and \
+                 self.problem.submission_set.filter(user_id=profile.id, result='AC',
+                                                   points=self.problem.points).exists()):
             return True
         return False
 

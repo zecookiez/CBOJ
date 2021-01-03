@@ -156,6 +156,8 @@ class Problem(models.Model):
     organizations = models.ManyToManyField(Organization, blank=True, verbose_name=_('organizations'),
                                            help_text=_('If private, only these organizations may see the problem.'))
     is_organization_private = models.BooleanField(verbose_name=_('private to organizations'), default=False)
+    has_public_submissions = models.BooleanField(verbose_name=_('public submissions'), 
+                                                 help_text=_('Whether users have access to other user\'s submissions.'), default=False)
 
     def __init__(self, *args, **kwargs):
         super(Problem, self).__init__(*args, **kwargs)
