@@ -42,6 +42,8 @@ class ProblemData(models.Model):
     output_limit = models.IntegerField(verbose_name=_('output limit length'), blank=True, null=True)
     feedback = models.TextField(verbose_name=_('init.yml generation feedback'), blank=True)
     checker = models.CharField(max_length=10, verbose_name=_('checker'), choices=CHECKERS, blank=True)
+    custom_checker = models.FileField(verbose_name=_('custom checker file'), storage=problem_data_storage, null=True, blank=True,
+                                 upload_to=problem_directory_file)
     checker_args = models.TextField(verbose_name=_('checker arguments'), blank=True,
                                     help_text=_('checker arguments as a JSON object'))
 
@@ -69,6 +71,8 @@ class ProblemData(models.Model):
             self.zipfile.name = _problem_directory_file(new, self.zipfile.name)
         if self.generator:
             self.generator.name = _problem_directory_file(new, self.generator.name)
+        if self.custom_checker:
+            self.custom_checker.name = _problem_directory_file(new, self.custom_checker.name)
         self.save()
     _update_code.alters_data = True
 

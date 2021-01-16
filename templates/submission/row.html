@@ -51,7 +51,7 @@
     {% if can_view %}
         <div class="sub-prop"><div>
             {% if submission.feedback %}
-                <span class="feedback-indicator">(Feedback available)</span>
+                <span class="feedback-indicator"><i>(Feedback available)</i></span>
             {% endif %}
             <a href="{{ url('submission_status', submission.id) }}">
                 <i class="fa fa-eye fa-fw"></i><span class="label">{{ _('view') }}</span>
