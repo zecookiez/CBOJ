@@ -171,7 +171,12 @@ class ProblemDataCompiler(object):
             init['output_limit_length'] = self.data.output_limit
         if self.data.output_prefix is not None:
             init['output_prefix_length'] = self.data.output_prefix
-        if self.data.checker:
+        if self.data.custom_checker:
+            checker_path = split_path_first(self.data.custom_checker.name)
+            if len(checker_path) != 2:
+                raise ProblemDataError(_('How did you corrupt the checker path?'))
+            init['checker'] = checker_path[1]
+        elif self.data.checker:
             init['checker'] = make_checker(self.data)
         else:
             self.data.checker_args = ''
