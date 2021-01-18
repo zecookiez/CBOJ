@@ -10,7 +10,7 @@ PP_WEIGHT_TABLE = [pow(settings.DMOJ_PP_STEP, i) for i in range(settings.DMOJ_PP
 
 PPBreakdown = namedtuple('PPBreakdown', 'points weight scaled_points problem_name problem_code '
                                         'sub_id sub_date sub_points sub_total sub_result_class '
-                                        'sub_short_status sub_long_status sub_lang')
+                                        'sub_short_status sub_long_status sub_lang is_private_problem')
 
 
 def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
@@ -25,16 +25,18 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
                    judge_submission.case_total,
                    judge_submission.result,
                    judge_language.short_name,
-                   judge_language.key
+                   judge_language.key,
+                   max_points_table.is_organization_private
             FROM judge_submission
             JOIN (SELECT judge_problem.id problem_id,
                          judge_problem.name problem_name,
                          judge_problem.code problem_code,
-                         MAX(judge_submission.points) AS max_points
+                         MAX(judge_submission.points) AS max_points,
+                         judge_problem.is_organization_private is_organization_private
                 FROM judge_problem
                 INNER JOIN judge_submission ON (judge_problem.id = judge_submission.problem_id)
                 WHERE (judge_problem.is_public = True AND
-                       judge_problem.is_organization_private = False AND
+                       judge_problem.is_weighted = True AND
                        judge_submission.points IS NOT NULL AND
                        judge_submission.user_id = %s)
                 GROUP BY judge_problem.id
@@ -52,7 +54,7 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
 
     breakdown = []
     for weight, contrib in zip(PP_WEIGHT_TABLE[start:end], data):
-        code, name, points, id, date, case_points, case_total, result, lang_short_name, lang_key = contrib
+        code, name, points, id, date, case_points, case_total, result, lang_short_name, lang_key, is_org_private = contrib
 
         # Replicates a lot of the logic usually done on Submission objects
         lang_short_display_name = lang_short_name or lang_key
@@ -73,6 +75,7 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
             sub_long_status=long_status,
             sub_result_class=result_class,
             sub_lang=lang_short_display_name,
+            is_private_problem=is_org_private,
         ))
     has_more = end < min(len(PP_WEIGHT_TABLE), start + len(data))
     return breakdown, has_more
