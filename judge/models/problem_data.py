@@ -43,7 +43,7 @@ class ProblemData(models.Model):
     feedback = models.TextField(verbose_name=_('init.yml generation feedback'), blank=True)
     checker = models.CharField(max_length=10, verbose_name=_('checker'), choices=CHECKERS, blank=True)
     custom_checker = models.FileField(verbose_name=_('custom checker file'), storage=problem_data_storage, null=True, blank=True,
-                                 upload_to=problem_directory_file)
+                                      upload_to=problem_directory_file)
     checker_args = models.TextField(verbose_name=_('checker arguments'), blank=True,
                                     help_text=_('checker arguments as a JSON object'))
 

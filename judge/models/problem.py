@@ -134,6 +134,8 @@ class Problem(models.Model):
     allowed_languages = models.ManyToManyField(Language, verbose_name=_('allowed languages'),
                                                help_text=_('List of allowed submission languages.'))
     is_public = models.BooleanField(verbose_name=_('publicly visible'), db_index=True, default=False)
+    is_weighted = models.BooleanField(verbose_name=_('weighted for points'), db_index=True, default=True,
+                                      help_text=_('Whether users should earn points from this problem.'))
     is_manually_managed = models.BooleanField(verbose_name=_('manually managed'), db_index=True, default=False,
                                               help_text=_('Whether judges should be allowed to manage data or not.'))
     date = models.DateTimeField(verbose_name=_('date of publishing'), null=True, blank=True, db_index=True,
@@ -270,6 +272,10 @@ class Problem(models.Model):
     @classmethod
     def get_public_problems(cls):
         return cls.objects.filter(is_public=True, is_organization_private=False).defer('description')
+
+    @classmethod
+    def get_weighted_problems(cls):
+        return cls.objects.filter(is_public=True, is_weighted=True).defer('description')
 
     @classmethod
     def get_editable_problems(cls, user):
