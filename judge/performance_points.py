@@ -2,18 +2,20 @@ from collections import namedtuple
 
 from django.conf import settings
 from django.db import connection
+from django.contrib.auth.models import User
 
-from judge.models import Submission
+from judge.models import Submission, Problem
 from judge.timezone import from_database_time
 
 PP_WEIGHT_TABLE = [pow(settings.DMOJ_PP_STEP, i) for i in range(settings.DMOJ_PP_ENTRIES)]
 
 PPBreakdown = namedtuple('PPBreakdown', 'points weight scaled_points problem_name problem_code '
                                         'sub_id sub_date sub_points sub_total sub_result_class '
-                                        'sub_short_status sub_long_status sub_lang is_private_problem')
+                                        'sub_short_status sub_long_status sub_lang is_private_problem '
+                                        'is_visible_to')
 
 
-def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
+def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES, request=None):
     with connection.cursor() as cursor:
         cursor.execute('''
             SELECT max_points_table.problem_code,
@@ -52,6 +54,7 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
         ''', (user.id, user.id, end - start + 1, start))
         data = cursor.fetchall()
 
+    request_user = User.objects.get(username=request.user) if request != None else None
     breakdown = []
     for weight, contrib in zip(PP_WEIGHT_TABLE[start:end], data):
         code, name, points, id, date, case_points, case_total, result, lang_short_name, lang_key, is_org_private = contrib
@@ -60,6 +63,8 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
         lang_short_display_name = lang_short_name or lang_key
         result_class = Submission.result_class_from_code(result, case_points, case_total)
         long_status = Submission.USER_DISPLAY_CODES.get(result, '')
+
+        is_visible_to = 1 if request_user != None and Problem.objects.get(code=code).is_accessible_by(request_user) else 0
 
         breakdown.append(PPBreakdown(
             points=points,
@@ -76,6 +81,7 @@ def get_pp_breakdown(user, start=0, end=settings.DMOJ_PP_ENTRIES):
             sub_result_class=result_class,
             sub_lang=lang_short_display_name,
             is_private_problem=is_org_private,
+            is_visible_to = is_visible_to,
         ))
     has_more = end < min(len(PP_WEIGHT_TABLE), start + len(data))
     return breakdown, has_more

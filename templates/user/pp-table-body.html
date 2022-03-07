@@ -1,5 +1,5 @@
 {% for breakdown in pp_breakdown %}
-    {% if user.user != request.user and breakdown.is_private_problem %}
+    {% if request.user != user.user and not breakdown.is_visible_to %}
         <div class="submission-row">{% include "user/pp-private-row.html" %}</div>
     {% else %}
         <div class="submission-row">{% include "user/pp-row.html" %}</div>

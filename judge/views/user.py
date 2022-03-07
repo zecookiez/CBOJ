@@ -209,7 +209,7 @@ class UserProblemsPage(UserPage):
                     'problem__group__full_name': 'group',
                 }), itemgetter('group'))
         ]
-        breakdown, has_more = get_pp_breakdown(self.object, start=0, end=10)
+        breakdown, has_more = get_pp_breakdown(self.object, start=0, end=10, request=self.request)
         context['pp_breakdown'] = breakdown
         context['pp_has_more'] = has_more
 
@@ -228,7 +228,7 @@ class UserPerformancePointsAjax(UserProblemsPage):
                 raise ValueError
         except ValueError:
             start, end = 0, 100
-        breakdown, self.has_more = get_pp_breakdown(self.object, start=start, end=end)
+        breakdown, self.has_more = get_pp_breakdown(self.object, start=start, end=end, request=self.request)
         context['pp_breakdown'] = breakdown
         return context
 
