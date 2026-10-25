@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy
 from judge.contest_format.default import DefaultContestFormat
 from judge.contest_format.registry import register_contest_format
 from judge.utils.timedelta import nice_repr
+from judge.utils.problems import contest_completed_ids
 
 
 @register_contest_format('ecoo')
@@ -107,7 +108,7 @@ class ECOOContestFormat(DefaultContestFormat):
             return format_html(
                 '<td class="{state}"><a href="{url}">{points}{bonus}<div class="solving-time">{time}</div></a></td>',
                 state=(('pretest-' if self.contest.run_pretests_only and contest_problem.is_pretested else '') +
-                       self.best_solution_state(format_data['points'], contest_problem.points)),
+                       self.best_solution_state(format_data['points'], contest_problem.points, contest_problem.problem.id in contest_completed_ids(participation))),
                 url=reverse('contest_user_submissions',
                             args=[self.contest.key, participation.user.user.username, contest_problem.problem.code]),
                 points=floatformat(format_data['points']),

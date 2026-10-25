@@ -7,17 +7,17 @@ from django.db.models.fields import FloatField
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
 
-from judge.models import Problem, Submission
+import judge.models as _
 
 __all__ = ['contest_completed_ids', 'get_result_data', 'user_completed_ids', 'user_editable_ids', 'user_tester_ids']
 
 
 def user_tester_ids(profile):
-    return set(Problem.objects.filter(testers=profile).values_list('id', flat=True))
+    return set(_.Problem.objects.filter(testers=profile).values_list('id', flat=True))
 
 
 def user_editable_ids(profile):
-    return set(Problem.get_editable_problems(profile.user).values_list('id', flat=True))
+    return set(_.Problem.get_editable_problems(profile.user).values_list('id', flat=True))
 
 
 def contest_completed_ids(participation):
@@ -34,7 +34,7 @@ def user_completed_ids(profile):
     key = 'user_complete:%d' % profile.id
     result = cache.get(key)
     if result is None:
-        result = set(Submission.objects.filter(user=profile, result='AC', points=F('problem__points'))
+        result = set(_.Submission.objects.filter(user=profile, result='AC', points=F('problem__points'))
                      .values_list('problem_id', flat=True).distinct())
         cache.set(key, result, 86400)
     return result
@@ -58,7 +58,7 @@ def user_attempted_ids(profile):
     result = cache.get(key)
     if result is None:
         result = {id: {'achieved_points': points, 'max_points': max_points}
-                  for id, max_points, points in (Submission.objects.filter(user=profile)
+                  for id, max_points, points in (_.Submission.objects.filter(user=profile)
                                                  .values_list('problem__id', 'problem__points')
                                                  .annotate(points=Max('points'))
                                                  .filter(points__lt=F('problem__points')))}
@@ -88,7 +88,7 @@ def get_result_data(*args, **kwargs):
         if kwargs:
             raise ValueError(_("Can't pass both queryset and keyword filters"))
     else:
-        submissions = Submission.objects.filter(**kwargs) if kwargs is not None else Submission.objects
+        submissions = _.Submission.objects.filter(**kwargs) if kwargs is not None else _.Submission.objects
     raw = submissions.values('result').annotate(count=Count('result')).values_list('result', 'count')
     return _get_result_data(defaultdict(int, raw))
 
@@ -97,7 +97,7 @@ def hot_problems(duration, limit):
     cache_key = 'hot_problems:%d:%d' % (duration.total_seconds(), limit)
     qs = cache.get(cache_key)
     if qs is None:
-        qs = Problem.get_public_problems() \
+        qs = _.Problem.get_public_problems() \
                     .filter(submission__date__gt=timezone.now() - duration, points__gt=3, points__lt=25)
         qs0 = qs.annotate(k=Count('submission__user', distinct=True)).order_by('-k').values_list('k', flat=True)
 
