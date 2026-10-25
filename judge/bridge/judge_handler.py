@@ -399,8 +399,7 @@ class JudgeHandler(ZlibPacketHandler):
             case_points=points, case_total=total, user=submission.user_id,
             problem=problem.code, finish=True,
         ))
-
-        if problem.is_public and not problem.is_organization_private:
+        if problem.is_public:
             submission.user._updating_stats_only = True
             submission.user.calculate_points()
 
