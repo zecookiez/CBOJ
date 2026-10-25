@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
 from django_social_share.templatetags.social_share import post_to_facebook_url, post_to_gplus_url, post_to_twitter_url
@@ -31,4 +32,9 @@ for name, template, url_func in SHARES:
 
 @registry.function
 def recaptcha_init(language=None):
-    return get_template('snowpenguin/recaptcha/recaptcha_init.html').render({'explicit': False, 'language': language})
+    return get_template('snowpenguin/recaptcha/recaptcha_init.html').render({
+        'explicit': False,
+        'language': language,
+        # django-recaptcha2 >= 1.3 builds the script URL from this; without it the script loads from our own host.
+        'recaptcha_host': getattr(settings, 'RECAPTCHA_PROXY_HOST', 'https://www.google.com'),
+    })
