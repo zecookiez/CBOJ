@@ -93,8 +93,16 @@ wss_receiver.on('connection', function (socket) {
             }));
             return;
         }
+        if (!request || typeof request.command != 'string') {
+            socket.send(JSON.stringify({
+                status: 'error',
+                code: 'bad-command',
+                message: 'missing command'
+            }));
+            return;
+        }
         request.command = request.command.replace(/-/g, '_');
-        if (request.command in commands)
+        if (commands.hasOwnProperty(request.command))
             commands[request.command](request);
         else
             socket.send(JSON.stringify({
@@ -107,6 +115,9 @@ wss_receiver.on('connection', function (socket) {
     socket.on('close', function(code, message) {
         followers.remove(socket);
     });
+
+    // ws closes the connection on a bad frame; without a listener the error would crash the daemon.
+    socket.on('error', function () {});
 });
 
 wss_sender.on('connection', function (socket) {
@@ -140,8 +151,16 @@ wss_sender.on('connection', function (socket) {
             }));
             return;
         }
+        if (!request || typeof request.command != 'string') {
+            socket.send(JSON.stringify({
+                status: 'error',
+                code: 'bad-command',
+                message: 'missing command'
+            }));
+            return;
+        }
         request.command = request.command.replace(/-/g, '_');
-        if (request.command in commands)
+        if (commands.hasOwnProperty(request.command))
             socket.send(JSON.stringify(commands[request.command](request)));
         else
             socket.send(JSON.stringify({
@@ -150,6 +169,8 @@ wss_sender.on('connection', function (socket) {
                 message: 'bad command: ' + request.command
             }));
     });
+
+    socket.on('error', function () {});
 });
 
 var url = require('url');
