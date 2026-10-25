@@ -118,6 +118,11 @@ class UserPage(TitleMixin, UserMixin, DetailView):
             context['rated_users'] = Profile.objects.filter(is_unlisted=False, rating__isnull=False).count()
         context.update(self.object.ratings.aggregate(min_rating=Min('rating'), max_rating=Max('rating'),
                                                      contests=Count('contest')))
+
+        # Spam accounts only sign up to publish links in their self-description, so keep it (and the profile)
+        # out of public view and search engines until the user has actually used the site.
+        context['show_about'] = (self.object.user.is_staff or self.object.organizations.exists() or
+                                 Submission.objects.filter(user=self.object).exists())
         return context
 
     def get(self, request, *args, **kwargs):

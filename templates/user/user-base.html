@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block meta %}
+    {% if show_about is defined and not show_about %}
+        <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+{% endblock %}
+
 {% block media %}
     {% block user_media %}{% endblock %}
 

@@ -29,8 +29,11 @@
             {% endwith %}
         {% endif%}
 
-        {% if user.about %}
+        {% if user.about and (show_about or user.user == request.user or perms.judge.change_profile) %}
             <h4>{{ _('About') }}</h4>
+            {% if not show_about %}
+                <p><i>{{ _('Hidden from other users until this user makes a submission.') }}</i></p>
+            {% endif %}
             {% cache 86400 'user_about' user.id MATH_ENGINE %}
                 {{ user.about|markdown('self-description', MATH_ENGINE)|reference|str|safe }}
             {% endcache %}
