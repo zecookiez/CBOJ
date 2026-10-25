@@ -99,3 +99,8 @@ class BaseContestFormat(six.with_metaclass(ABCMeta)):
         if not points:
             return 'failed-score'
         return 'partial-score'
+
+    def has_ac(self, participation, contest_problem):
+        # Imported here since judge.models imports this module.
+        from judge.utils.problems import contest_completed_ids
+        return contest_problem.problem_id in contest_completed_ids(participation)
