@@ -120,12 +120,12 @@
     color: grey;
 }
 
-label[for="language"], label[for="status"] {
+label[for="language"], label[for="status"], label[for="sort"] {
     padding-bottom: 0.25em;
     display: block;
 }
 
-#language {
+#language, #sort {
     margin-top: 0.5em;
     width: 100%;
 }
