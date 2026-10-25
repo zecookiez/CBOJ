@@ -120,9 +120,10 @@ class UserPage(TitleMixin, UserMixin, DetailView):
                                                      contests=Count('contest')))
 
         # Spam accounts only sign up to publish links in their self-description, so keep it (and the profile)
-        # out of public view and search engines until the user has actually used the site.
-        context['show_about'] = (self.object.user.is_staff or self.object.organizations.exists() or
-                                 Submission.objects.filter(user=self.object).exists())
+        # out of public view and search engines until the user has solved a problem. Organization membership doesn't
+        # count, since anyone can join an open organization while registering.
+        context['show_about'] = (self.object.user.is_staff or
+                                 Submission.objects.filter(user=self.object, result='AC').exists())
         return context
 
     def get(self, request, *args, **kwargs):
