@@ -128,11 +128,14 @@
             // Only ask for a school email when the email above isn't one.
             var $school = $('#school-email');
             if ($school.length) {
-                var domain = '@' + $school.data('domain');
+                var domain = String($school.data('domain'));
                 var $email = $('#id_email');
                 var update_school = function () {
                     var email = $.trim($email.val()).toLowerCase();
-                    $school.toggle(email.indexOf('@') !== -1 && email.slice(-domain.length) !== domain);
+                    var at = email.lastIndexOf('@');
+                    var typed = at === -1 ? '' : email.slice(at + 1);
+                    // Wait until what's typed after the @ can no longer become the school domain.
+                    $school.toggle(typed !== '' && domain.indexOf(typed) !== 0);
                 };
                 $email.on('input change', update_school);
                 update_school();
