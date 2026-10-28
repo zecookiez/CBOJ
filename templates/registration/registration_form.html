@@ -155,7 +155,8 @@
                 <div class="form-field-error">{{ form.username.errors }}</div>
             {% endif %}
 
-            <div class="block-header">{{ _('Email') }}</div>
+            <div class="block-header">{{ _('Email') }}
+                {%- if form.school_email %}<small>{{ _('(school or personal)') }}</small>{% endif %}</div>
             <span class="fullwidth{% if form.email.errors %}-error{% endif %}">{{ form.email }}</span>
             {% if form.email.errors %}
                 <div class="form-field-error">{{ form.email.errors }}</div>
@@ -169,7 +170,7 @@
                         <div class="form-field-error">{{ form.school_email.errors }}</div>
                     {% endif %}
                     <div class="grayed" style="font-size: 0.85em; padding-top: 0.2em">
-                        {{ _('To keep out spam accounts, the activation link is sent to your school email. After that, your account uses the email above.') }}
+                        {{ _("Since the email above isn't an @%(domain)s address, the activation link is sent to your school email instead, to keep out spam accounts. After that, your account uses the email above.", domain=school_email_domain) }}
                     </div>
                 </div>
             {% endif %}
