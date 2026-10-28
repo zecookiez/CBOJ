@@ -148,6 +148,16 @@
                 <div class="form-field-error">{{ form.email.errors }}</div>
             {% endif %}
 
+            {% if form.school_email %}
+                <div class="block-header">{{ _('School email') }}
+                    <small>{{ _('(only if your email above is not @%(domain)s)', domain=school_email_domain) }}</small>
+                </div>
+                <span class="fullwidth{% if form.school_email.errors %}-error{% endif %}">{{ form.school_email }}</span>
+                {% if form.school_email.errors %}
+                    <div class="form-field-error">{{ form.school_email.errors }}</div>
+                {% endif %}
+            {% endif %}
+
             <div class="block-header">{{ _('Password') -}}
                 <small>(<a href="#" class="pass-req-link">?</a>)</small>
             </div>

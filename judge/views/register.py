@@ -40,6 +40,36 @@ class CustomRegistrationForm(RegistrationForm):
     if ReCaptchaField is not None:
         captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
+    if settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
+        school_email = forms.EmailField(label=_('School email'), required=False)
+
+    def clean_school_email(self):
+        school_email = self.cleaned_data['school_email']
+        if school_email:
+            if school_email.split('@')[-1].lower() != settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
+                raise forms.ValidationError(gettext('Please enter your @%s email address.') %
+                                            settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN)
+            if (User.objects.filter(email__iexact=school_email).exists() or
+                    Profile.objects.filter(notes__icontains=school_email).exists()):
+                raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
+                                                    'is allowed per address.') % school_email)
+        return school_email
+
+    def clean(self):
+        cleaned_data = super(CustomRegistrationForm, self).clean()
+        domain = settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN
+        email = cleaned_data.get('email')
+        if domain and email and email.split('@')[-1].lower() != domain:
+            if cleaned_data.get('school_email'):
+                # The user is created with the school email so that the activation link is sent there;
+                # RegistrationView.register switches it back to the personal email afterwards.
+                cleaned_data['personal_email'] = email
+                cleaned_data['email'] = cleaned_data['school_email']
+            elif 'school_email' not in self.errors:
+                self.add_error('school_email', gettext('Since your email is not an @%s address, please also enter '
+                                                       'your @%s email to activate your account.') % (domain, domain))
+        return cleaned_data
+
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
             raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
@@ -66,6 +96,7 @@ class RegistrationView(OldRegistrationView):
         kwargs['TIMEZONE_BG'] = settings.TIMEZONE_BG if tzmap else '#4E7CAD'
         kwargs['password_validators'] = get_default_password_validators()
         kwargs['tos_url'] = settings.TERMS_OF_SERVICE_URL
+        kwargs['school_email_domain'] = settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN
         return super(RegistrationView, self).get_context_data(**kwargs)
 
     def register(self, form):
@@ -78,6 +109,10 @@ class RegistrationView(OldRegistrationView):
         profile.timezone = cleaned_data['timezone']
         profile.language = cleaned_data['language']
         profile.organizations.add(*cleaned_data['organizations'])
+        if cleaned_data.get('personal_email'):
+            user.email = cleaned_data['personal_email']
+            user.save(update_fields=['email'])
+            profile.notes = 'School email: %s' % cleaned_data['school_email']
         profile.save()
 
         if newsletter_id is not None and cleaned_data['newsletter']:
