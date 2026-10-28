@@ -124,6 +124,19 @@
                 $('.pass-req').toggle('fast');
                 return false;
             });
+
+            // Only ask for a school email when the email above isn't one.
+            var $school = $('#school-email');
+            if ($school.length) {
+                var domain = '@' + $school.data('domain');
+                var $email = $('#id_email');
+                var update_school = function () {
+                    var email = $.trim($email.val()).toLowerCase();
+                    $school.toggle(email.indexOf('@') !== -1 && email.slice(-domain.length) !== domain);
+                };
+                $email.on('input change', update_school);
+                update_school();
+            }
         });
     </script>
     {% if form.captcha %}
@@ -149,13 +162,16 @@
             {% endif %}
 
             {% if form.school_email %}
-                <div class="block-header">{{ _('School email') }}
-                    <small>{{ _('(only if your email above is not @%(domain)s)', domain=school_email_domain) }}</small>
+                <div id="school-email" data-domain="{{ school_email_domain }}">
+                    <div class="block-header">{{ _('School email') }}<small>(@{{ school_email_domain }})</small></div>
+                    <span class="fullwidth{% if form.school_email.errors %}-error{% endif %}">{{ form.school_email }}</span>
+                    {% if form.school_email.errors %}
+                        <div class="form-field-error">{{ form.school_email.errors }}</div>
+                    {% endif %}
+                    <div class="grayed" style="font-size: 0.85em; padding-top: 0.2em">
+                        {{ _('To keep out spam accounts, the activation link is sent to your school email. After that, you sign in and get emails at the address above, so your account keeps working after you graduate.') }}
+                    </div>
                 </div>
-                <span class="fullwidth{% if form.school_email.errors %}-error{% endif %}">{{ form.school_email }}</span>
-                {% if form.school_email.errors %}
-                    <div class="form-field-error">{{ form.school_email.errors }}</div>
-                {% endif %}
             {% endif %}
 
             <div class="block-header">{{ _('Password') -}}
