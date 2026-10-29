@@ -20,6 +20,16 @@ from judge.widgets import Select2MultipleWidget, Select2Widget
 
 valid_id = re.compile(r'^\w+$')
 bad_mail_regex = list(map(re.compile, settings.BAD_MAIL_PROVIDER_REGEX))
+school_email_regex = re.compile(settings.REGISTRATION_SCHOOL_EMAIL_REGEX, re.IGNORECASE)
+
+
+def check_school_email(email):
+    # Made-up addresses at the school domain would still get an activation email, so reject ones that
+    # don't look like a real student or teacher address.
+    if (email.split('@')[-1].lower() == settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN and
+            not school_email_regex.fullmatch(email.rsplit('@', 1)[0])):
+        raise forms.ValidationError(gettext("That doesn't look like an @%s email address.") %
+                                    settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN)
 
 
 class CustomRegistrationForm(RegistrationForm):
@@ -49,6 +59,7 @@ class CustomRegistrationForm(RegistrationForm):
             if school_email.split('@')[-1].lower() != settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
                 raise forms.ValidationError(gettext('Please enter your @%s email address.') %
                                             settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN)
+            check_school_email(school_email)
             if (User.objects.filter(email__iexact=school_email).exists() or
                     Profile.objects.filter(notes__icontains=school_email).exists()):
                 raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
@@ -80,6 +91,8 @@ class CustomRegistrationForm(RegistrationForm):
                     any(regex.match(domain) for regex in bad_mail_regex)):
                 raise forms.ValidationError(gettext('Your email provider is not allowed due to history of abuse. '
                                                     'Please use a reputable email provider.'))
+            if settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
+                check_school_email(self.cleaned_data['email'])
         return self.cleaned_data['email']
 
 
