@@ -6,7 +6,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import get_default_password_validators
 from django.forms import ChoiceField, ModelChoiceField
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils.translation import gettext, gettext_lazy as _
 from registration.backends.default.views import (ActivationView as OldActivationView,
                                                  RegistrationView as OldRegistrationView)
@@ -23,13 +23,10 @@ bad_mail_regex = list(map(re.compile, settings.BAD_MAIL_PROVIDER_REGEX))
 school_email_regex = re.compile(settings.REGISTRATION_SCHOOL_EMAIL_REGEX, re.IGNORECASE)
 
 
-def check_school_email(email):
-    # Made-up addresses at the school domain would still get an activation email, so reject ones that
-    # don't look like a real student or teacher address.
-    if (email.split('@')[-1].lower() == settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN and
-            not school_email_regex.fullmatch(email.rsplit('@', 1)[0])):
-        raise forms.ValidationError(gettext("That doesn't look like an @%s email address.") %
-                                    settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN)
+def looks_like_school_email(email):
+    # Made-up addresses at the school domain would still get an activation email, so only accept ones that
+    # look like a real student or teacher address.
+    return school_email_regex.fullmatch(email.rsplit('@', 1)[0]) is not None
 
 
 class CustomRegistrationForm(RegistrationForm):
@@ -59,8 +56,8 @@ class CustomRegistrationForm(RegistrationForm):
             if school_email.split('@')[-1].lower() != settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
                 raise forms.ValidationError(gettext('Please enter your @%s email address.') %
                                             settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN)
-            check_school_email(school_email)
-            if (User.objects.filter(email__iexact=school_email).exists() or
+            if looks_like_school_email(school_email) and (
+                    User.objects.filter(email__iexact=school_email).exists() or
                     Profile.objects.filter(notes__icontains=school_email).exists()):
                 raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
                                                     'is allowed per address.') % school_email)
@@ -71,7 +68,11 @@ class CustomRegistrationForm(RegistrationForm):
         domain = settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN
         email = cleaned_data.get('email')
         if domain and email and email.split('@')[-1].lower() != domain:
-            if cleaned_data.get('school_email'):
+            if cleaned_data.get('school_email') and not looks_like_school_email(cleaned_data['school_email']):
+                # Spam signups make up school emails. Instead of showing an error that tells them what a real
+                # one looks like, RegistrationView.form_valid pretends the signup worked.
+                self.fake_school_email = True
+            elif cleaned_data.get('school_email'):
                 # The user is created with the school email so that the activation link is sent there;
                 # RegistrationView.register switches it back to the personal email afterwards.
                 cleaned_data['personal_email'] = email
@@ -91,8 +92,9 @@ class CustomRegistrationForm(RegistrationForm):
                     any(regex.match(domain) for regex in bad_mail_regex)):
                 raise forms.ValidationError(gettext('Your email provider is not allowed due to history of abuse. '
                                                     'Please use a reputable email provider.'))
-            if settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN:
-                check_school_email(self.cleaned_data['email'])
+            if domain == settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN and not looks_like_school_email(
+                    self.cleaned_data['email']):
+                raise forms.ValidationError(gettext("That doesn't look like an @%s email address.") % domain)
         return self.cleaned_data['email']
 
 
@@ -111,6 +113,11 @@ class RegistrationView(OldRegistrationView):
         kwargs['tos_url'] = settings.TERMS_OF_SERVICE_URL
         kwargs['school_email_domain'] = settings.REGISTRATION_SCHOOL_EMAIL_DOMAIN
         return super(RegistrationView, self).get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        if getattr(form, 'fake_school_email', False):
+            return redirect('registration_complete')
+        return super(RegistrationView, self).form_valid(form)
 
     def register(self, form):
         user = super(RegistrationView, self).register(form)
