@@ -110,6 +110,11 @@ DMOJ_NEWSLETTER_ID_ON_REGISTER = None
 
 BAD_MAIL_PROVIDERS = ()
 BAD_MAIL_PROVIDER_REGEX = ()
+# Users registering with an email from another domain must also give an address at this domain, and the
+# activation link is sent there. Set to None to allow any email.
+REGISTRATION_SCHOOL_EMAIL_DOMAIN = 'ocdsb.ca'
+# What the part before the @ of a school email must look like: students (smithj12) or teachers (john.smith).
+REGISTRATION_SCHOOL_EMAIL_REGEX = r'[a-z]+[0-9]+|[a-z-]+\.[a-z-]+'
 NOFOLLOW_EXCLUDED = set()
 
 TIMEZONE_BG = None
